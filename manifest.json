@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "WriteWise — 你的 AI 写作助手",
+  "version": "1.6.4",
+  "description": "自配 API Key 的语法检查、写作润色、翻译与草稿助手。支持网页输入框和常规富文本编辑器。",
+  "permissions": ["storage", "contextMenus", "activeTab"],
+  "optional_host_permissions": ["https://*/*", "http://localhost/*", "http://127.0.0.1/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_popup": "popup.html", "default_title": "WriteWise 写作助手", "default_icon": "icons/icon-128.png" },
+  "options_page": "options.html",
+  "icons": { "16": "icons/icon-16.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["inline-text.js", "inline.js", "model-picker.js", "selection.js", "content.js"],
+    "run_at": "document_idle",
+    "all_frames": true,
+    "match_about_blank": true
+  }],
+  "commands": {
+    "check-writing": { "suggested_key": { "default": "Alt+Shift+W", "mac": "Alt+Shift+W" }, "description": "检查当前输入框或选中文字" }
+  }
+}

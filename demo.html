@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WriteWise · 输入框测试页</title><link rel="stylesheet" href="shared.css"><style>main{max-width:780px;margin:50px auto;padding:20px}.card{margin:20px 0}[contenteditable]{min-height:100px;padding:15px;border:1px solid var(--line);border-radius:8px}textarea{min-height:120px}</style></head>
+<body><main><div class="brand">WriteWise / 试写一下</div><h1>让每一句话，更进一步。</h1><p class="muted">通过本地 HTTP 服务打开本页。点击下方输入框，停顿后自动画线；鼠标悬停即可预览并应用修改。</p>
+<section class="card"><label for="plain">普通输入框</label><textarea id="plain">She go to school every day. I has a important meeting tomorow.</textarea></section>
+<section class="card"><label>富文本编辑器</label><div id="rich" contenteditable="true" role="textbox" aria-multiline="true"><p>She <strong>go</strong> to school every day.</p><p>We is happy to hear from you.</p></div></section>
+<section class="card"><label for="safe">密码框（不会显示助手）</label><input type="password" id="safe" autocomplete="current-password"></section></main></body></html>
