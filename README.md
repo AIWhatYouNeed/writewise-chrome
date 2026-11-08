@@ -2,6 +2,18 @@
 
 可直接加载的 Manifest V3 插件，无需构建或订阅。支持语法、拼写、标点、清晰度、语气、改写、精简、翻译，以及独立写作台中的草稿、大纲与头脑风暴。
 
+![1794135364990](image/README/1794135364990.png)
+
+
+选中文字时会自动弹出翻译工具包：![1794135542163](image/README/1794135542163.png)
+
+选中的是中文时，默认翻译的目标语言是英文；反之，选中的是英文时，默认翻译的目标语言是中文。
+
+在可编辑的页面中，会自动进行语法检查，检查速度依赖于所配的模型速度。
+
+![1794135662714](image/README/1794135662714.png)
+
+
 ## 安装（约两分钟）
 
 1. 打开 Chrome，地址栏输入 `chrome://extensions`。
@@ -15,13 +27,13 @@ API Key 需要来自 API 服务商控制台；ChatGPT / Grammarly 等网页产�
 
 ## 服务商配置
 
-| 服务商 | API Base URL | 模型 |
-| --- | --- | --- |
-| OpenAI | `https://api.openai.com/v1` | 从控制台填写你可使用的模型 ID |
-| DeepSeek | `https://api.deepseek.com/v1` | 例如 `deepseek-chat`，以服务商当前支持为准 |
-| 通义千问 / 百炼 | `https://dashscope.aliyuncs.com/compatible-mode/v1` | 例如 `qwen-plus`，注意账号地域 |
-| 自建 OpenAI 兼容网关 | 你自己的 HTTPS Base URL | 对应模型 ID |
-| Ollama | `http://localhost:11434/v1` | 本机已下载、擅长 JSON 输出的模型 ID；Key 可填 `ollama` |
+| 服务商               | API Base URL                                          | 模型                                                     |
+| -------------------- | ----------------------------------------------------- | -------------------------------------------------------- |
+| OpenAI               | `https://api.openai.com/v1`                         | 从控制台填写你可使用的模型 ID                            |
+| DeepSeek             | `https://api.deepseek.com/v1`                       | 例如 `deepseek-chat`，以服务商当前支持为准             |
+| 通义千问 / 百炼      | `https://dashscope.aliyuncs.com/compatible-mode/v1` | 例如 `qwen-plus`，注意账号地域                         |
+| 自建 OpenAI 兼容网关 | 你自己的 HTTPS Base URL                               | 对应模型 ID                                              |
+| Ollama               | `http://localhost:11434/v1`                         | 本机已下载、擅长 JSON 输出的模型 ID；Key 可填 `ollama` |
 
 也可以填写完整的 `/chat/completions` URL。只支持 HTTPS；本机 `localhost` / `127.0.0.1` 可用 HTTP。若本地服务拒绝 Chrome 扩展 Origin，请按该服务的文档为本插件 Origin 添加允许规则。服务端重定向被禁用，避免认证头被转发；请直接填写最终接口地址。
 
@@ -93,10 +105,9 @@ API Key 需要来自 API 服务商控制台；ChatGPT / Grammarly 等网页产�
 
 ## 本地开发与验证
 
-扩展本身无运行时依赖，直接加载即可。测试需要 Node.js 20+。
+扩展本身无运行时依赖，直接加载即可。测试需要 Node.js 20+。测试命令如下，进入当前仓库主目录，运行：
 
 ```sh
-cd writewise
 npm test
 npm install
 npx playwright install chromium
